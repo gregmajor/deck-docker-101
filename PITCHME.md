@@ -1,4 +1,4 @@
-# Black Binary
+# White
 
 ### A GitPitch Presentation Template
 
@@ -14,7 +14,7 @@
 
 ---
 
-## Template FeaturesP
+## Template Features
 
 - Code Presenting |
 - Repo Source, Static Blocks, GIST |
@@ -115,6 +115,6 @@ http.createServer(function (request, response) {
 
 @title[Download this Template!]
 
-### Get your presentation started!
-### [Download this template @fa[external-link gp-download]](https://gitpitch.com/template/download/black-binary)
+### <span class="white">Get your presentation started!</span>
+### [Download this template @fa[external-link gp-download]](https://gitpitch.com/template/download/white)
 
