@@ -1,16 +1,40 @@
-# White
+# Docker 101
 
-### A GitPitch Presentation Template
+### Getting started with Docker
 
 ---
 
-## Tips!
+- Install |
+- Hello World
+- -it Ubuntu
+- 
 
-<br>
+---
 
-@fa[arrows gp-tip](Press F to go Fullscreen)
+## Concepts
 
-@fa[microphone gp-tip](Press S for Speaker Notes)
+- Docker Engine |
+- Images |
+- Dockerfiles |
+- Containers |
+- Image Registries |
+
+---
+
+## Installation
+
+https://store.docker.com/search?type=edition&offering=community
+
+### Windows Users
+
+- 64-bit Windows 10 Pro, Enterprise, and Education (Update 1607, Build 14393 or later)
+- Requires Hyper-V (preferred) or Docker Toolbox (Oracle Virtual Box)
+- Virtualization must be enabled in the BIOS
+- Nested virtualization is not guaranteed
+
+### Mac and Linux Users
+
+- Yeah, it'll almost certainly work with anything less than 5 years old
 
 ---
 
@@ -31,31 +55,40 @@
 
 ---
 
-@title[JavaScript Block]
+## Hello World!
 
-<p><span class="slide-title">JavaScript Block</span></p>
+```sh
+$ docker container run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+9bb5a5d4561a: Pull complete
+Digest: sha256:f5233545e43561214ca4891fd1157e1c3c563316ed8e237750d59bde73361e77
+Status: Downloaded newer image for hello-world:latest
 
-```javascript
-// Include http module.
-var http = require("http");
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
 
-// Create the server. Function passed as parameter
-// is called on every request made.
-http.createServer(function (request, response) {
-  // Attach listener on end event.  This event is
-  // called when client sent, awaiting response.
-  request.on("end", function () {
-    // Write headers to the response.
-    // HTTP 200 status, Content-Type text/plain.
-    response.writeHead(200, {
-      'Content-Type': 'text/plain'
-    });
-    // Send data and end response.
-    response.end('Hello HTTP!');
-  });
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
 
-// Listen on the 8080 port.
-}).listen(8080);
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/
+
+@[1](Ask Docker to run the 'hello-world' container)
+@[2-27](Output)
+
 ```
 
 @[1,2](You can present code inlined within your slide markdown too.)
@@ -115,6 +148,6 @@ http.createServer(function (request, response) {
 
 @title[Download this Template!]
 
-### <span class="white">Get your presentation started!</span>
-### [Download this template @fa[external-link gp-download]](https://gitpitch.com/template/download/white)
+### Get your presentation started!
+### [Download this template @fa[external-link gp-download]](https://gitpitch.com/template/download/black-binary)
 
