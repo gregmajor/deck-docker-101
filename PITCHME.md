@@ -1,63 +1,68 @@
 # Docker 101
-
+![Docker Logo](assets/images/logo-docker.jpg)
 ### Getting started with Docker
 
 ---
 
-- Install |
-- Hello World
-- -it Ubuntu
-- 
+## Objectives
+
+@ul
+- Find out why Docker is awesome
+- Understand how virtual machines and Docker differ
+- Install Docker on our computer
+- Understand Docker's core concepts
+- Run our first container
+- Get a little fancy with interactive terminals
+- Explore
+@ulend
 
 ---
 
-## Concepts
+## Why Docker is Awesome
 
-- Docker Engine |
-- Images |
-- Dockerfiles |
-- Containers |
-- Image Registries |
+Docker is an OS-level virtualization platform that allows for the isolation of applications and the sharing of selected resources.
+
+@ul
+- **SPEED** (no OS means super-fast startup)
+- **PORTABILITY** (easy to move things around)
+- **EFFICIENCY** (much smaller overhead)
+@ulend
+
+---
+
+## Virtual Machines vs Docker
+
+![image missing](assets/images/docker-vs-vm.png)
 
 ---
 
 ## Installation
 
-https://store.docker.com/search?type=edition&offering=community
+https://store.docker.com
 
-### Windows Users
+### Supported Platforms
 
-- 64-bit Windows 10 Pro, Enterprise, and Education (Update 1607, Build 14393 or later)
-- Requires Hyper-V (preferred) or Docker Toolbox (Oracle Virtual Box)
-- Virtualization must be enabled in the BIOS
-- Nested virtualization is not guaranteed
-
-### Mac and Linux Users
-
-- Yeah, it'll almost certainly work with anything less than 5 years old
+- MacOS (High Sierra and up)
+- Linux (kernel version 3.10 and up)
+- Windows 10 and Windows Server 2016
 
 ---
 
-## Template Features
+## Concepts
 
-- Code Presenting |
-- Repo Source, Static Blocks, GIST |
-- Custom CSS Styling |
-- Slideshow Background Image |
-- Slide-specific Background Images |
-- Custom Logo, TOC, and Footnotes |
-
----?code=sample/go/server.go&lang=golang&title=Golang File
-
-@[1,3-6](Present code found within any repo source file.)
-@[8-18](Without ever leaving your slideshow.)
-@[19-28](Using GitPitch code-presenting with (optional) annotations.)
+@ul
+- Docker Engine
+- Images
+- Dockerfiles
+- Containers
+- Image Registries
+@ulend
 
 ---
 
 ## Hello World!
 
-```sh
+```shell
 $ docker container run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
@@ -79,75 +84,279 @@ To generate this message, Docker took the following steps:
 
 To try something more ambitious, you can run an Ubuntu container with:
  $ docker run -it ubuntu bash
-
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
-
-For more examples and ideas, visit:
- https://docs.docker.com/engine/userguide/
-
-@[1](Ask Docker to run the 'hello-world' container)
-@[2-27](Output)
-
 ```
 
-@[1,2](You can present code inlined within your slide markdown too.)
-@[9-17](Displayed using code-syntax highlighting just like your IDE.)
-@[19-20](Again, all of this without ever leaving your slideshow.)
-
----?gist=onetapbeyond/494e0fecaf0d6a2aa2acadfb8eb9d6e8&lang=scala&title=Scala GIST
-
-@[23](You can even present code found within any GitHub GIST.)
-@[41-53](GIST source code is beautifully rendered on any slide.)
-@[57-62](And code-presenting works seamlessly for GIST too, both online and offline.)
-
----
-
-## Template Help
-
-- [Code Presenting](https://github.com/gitpitch/gitpitch/wiki/Code-Presenting)
-  + [Repo Source](https://github.com/gitpitch/gitpitch/wiki/Code-Delimiter-Slides), [Static Blocks](https://github.com/gitpitch/gitpitch/wiki/Code-Slides), [GIST](https://github.com/gitpitch/gitpitch/wiki/GIST-Slides) 
-- [Custom CSS Styling](https://github.com/gitpitch/gitpitch/wiki/Slideshow-Custom-CSS)
-- [Slideshow Background Image](https://github.com/gitpitch/gitpitch/wiki/Background-Setting)
-- [Slide-specific Background Images](https://github.com/gitpitch/gitpitch/wiki/Image-Slides#background)
-- [Custom Logo](https://github.com/gitpitch/gitpitch/wiki/Logo-Setting) [TOC](https://github.com/gitpitch/gitpitch/wiki/Table-of-Contents) [Footnotes](https://github.com/gitpitch/gitpitch/wiki/Footnote-Setting)
+@[1](The command)
+@[8-9](Why, hello there!)
+@[11-12](Step 1)
+@[2]
+@[11, 13-14](Step 2)
+@[3-6]
+@[11, 15-16](Step 3)
+@[11, 17-18](Step 4)
+@[20-21](Something more ambitious)
 
 ---
 
-## Go GitPitch Pro!
+## The Docker Engine
 
-<br>
-<div class="left">
-    <i class="fa fa-user-secret fa-5x" aria-hidden="true"> </i><br>
-    <a href="https://gitpitch.com/pro-features" class="pro-link">
-    More details here.</a>
-</div>
-<div class="right">
-    <ul>
-        <li>Private Repos</li>
-        <li>Private URLs</li>
-        <li>Password-Protection</li>
-        <li>Image Opacity</li>
-        <li>SVG Image Support</li>
-    </ul>
-</div>
+The Docker Engine is a platform composed of:
+
+@ul
+- The `dockerd` daemon
+- The REST API that allows programs to talk to the daemon
+- The `docker` CLI
+@ulend
 
 ---
 
-### Questions?
+## `docker info`
 
-<br>
+```shell
+$ docker info
+Containers: 2
+ Running: 1
+ Paused: 0
+ Stopped: 1
+Images: 2
+Server Version: 18.03.1-ce
+(...)
+```
 
-@fa[twitter gp-contact](@gitpitch)
+@[1](Command)
+@[6](Images)
+@[2-5](Containers)
+@[7](Server Version)
 
-@fa[github gp-contact](gitpitch)
+---
 
-@fa[medium gp-contact](@gitpitch)
+## Images
 
----?image=assets/image/gitpitch-audience.jpg&opacity=100
+Docker images are:
 
-@title[Download this Template!]
+@ul
+- Read-only templates with instructions for how to create a container
+- Frequently based on other images
+- Full of instructions that result in a layer in the image
+@ulend
 
-### Get your presentation started!
-### [Download this template @fa[external-link gp-download]](https://gitpitch.com/template/download/black-binary)
+---
 
+## Containers
+
+Docker containers are:
+
+@ul
+- Runnable instances of an image
+- Something you can start, stop, move, and delete
+- Something you can attach to networks
+- Something you can attach storage to
+- Isolated from other containers and the host
+@ulend
+
+---
+
+## `docker run -it`
+
+```shell
+$ docker run -it --rm busybox
+Unable to find image 'busybox:latest' locally
+latest: Pulling from library/busybox
+07a152489297: Pull complete
+Digest: sha256:141c253bc4c3fd0a201d32dc1f493bcf3fff003b6df416dea4f41046e0f37d47
+Status: Downloaded newer image for busybox:latest
+/ # ls
+bin   dev   etc   home  proc  root  sys   tmp   usr   var
+/ # echo $HOSTNAME
+af3e3464c48d
+```
+
+@[1](Command)
+@[2-6](Pulling the Image)
+@[7-8](It Has a File System!)
+@[9-10](It Has a Host Name!)
+
+@ul
+- Interactive Terminal
+- Clean up on exit
+- Detached vs foreground
+
+---
+
+## Image Registries
+
+Docker image registries:
+
+@ul
+- Store Docker images
+- Docker Hub (by default)
+- Private if necessary
+- Modeled heavily after GitHub (and similar)
+@ulend
+
+---
+
+## Dockerfiles
+
+Dockerfiles are text files with instructions on how to build an image.
+
+```shell
+FROM nginx
+
+COPY wrapper.sh /
+
+RUN chmod +x ./wrapper.sh
+
+COPY html /usr/share/nginx/html
+
+CMD ["./wrapper.sh"]
+```
+
+@[1](Declare a base image)
+@[3](Copy a file into the file system)
+@[5](Run a command)
+@[7](Copy more files into the file system)
+
+---
+
+## `docker build`
+
+```shell
+$ docker build -f Dockerfile .
+Sending build context to Docker daemon  39.94kB
+Step 1/4 : FROM nginx
+latest: Pulling from library/nginx
+f2aa67a397c4: Pull complete
+1cd0975d4f45: Pull complete
+72fd2d3be09a: Pull complete
+Digest: sha256:3e2ffcf0edca2a4e9b24ca442d227baea7b7f0e33ad654ef1eb806fbd9bedcf0
+Status: Downloaded newer image for nginx:latest
+ ---> cd5239a0906a
+Step 2/4 : COPY wrapper.sh /
+ ---> 1be13b6138d1
+Step 3/4 : COPY html /usr/share/nginx/html
+ ---> 78b5fd09218b
+Step 4/4 : CMD ["./wrapper.sh"]
+ ---> Running in d2348d60933a
+Removing intermediate container d2348d60933a
+ ---> 4c05e799cbf6
+Successfully built 4c05e799cbf6
+```
+
+@[1](Command)
+@[3-8](Pulling the base image)
+@[11, 13, 15](Running the instructions)
+@[19](Voila!)
+
+---
+
+## `docker run -d -P --name`
+
+```shell
+$ docker run -d -P --name static-site  ad93ee7a4fc8
+4a651d41903a503903ca8e01f287f87e4cb5bad2190ee946cb0a06d8fa721f7b
+```
+
+@[1](Command)
+@[2](Container Id)
+
+@ul
+- Detached mode
+- Publish all exposed ports
+- Name the container
+@ulend
+
+---
+
+## `docker ps`
+
+```shell
+$ docker ps
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                    NAMES
+4a651d41903a        ad93ee7a4fc8                 "./wrapper.sh"           2 minutes ago       Up 2 minutes        0.0.0.0:32768->80/tcp    static-site
+```
+
+@[1](Command)
+@[2-3](Container Info)
+
+---
+
+## `docker port`
+
+```shell
+$ docker port static-site
+80/tcp -> 0.0.0.0:32768
+```
+
+@[1](Command)
+@[2-3](Port Info)
+
+---
+
+## `docker commit`
+
+```shell
+$ docker commit 4a65 static-site
+sha256:aab7e4cfb6dd8be703b5277375543a8c2c389c24b83b51e8bb36ff9c634d845e
+```
+
+@[1](Command)
+@[2-3](Commit Hash)
+
+---
+
+## `docker tag`
+
+```shell
+$ docker login
+$ docker tag static-site $DOCKER_ID_USER/static-site
+```
+
+@[1](Login to Docker)
+@[2](Command)
+
+---
+
+## `docker push`
+
+```shell
+$ docker push $DOCKER_ID_USER/static-site
+The push refers to repository [docker.io/gregmajor/static-site]
+1fc5c6bc4643: Pushed
+972766f29cd5: Pushed
+04fb925bb6b0: Pushed
+dd8bd15cff64: Pushed
+3ff93588120e: Mounted from library/nginx
+24ee0a3fd4b9: Mounted from library/nginx
+d626a8ad97a1: Mounted from library/nginx
+latest: digest: sha256:674630a5718e1098ddcdcd6430f24bfe7f57c3a7fbb8774cbb24cc08f0ef2c8e size: 1777
+```
+
+@[1](Command)
+@[2](Repository Info)
+@[3-9](Pushing Layers)
+@[10](Push Tag)
+
+---
+
+## Other Useful Commands
+
+```shell
+$ docker images
+$ docker rmi
+$ docker rm
+$ docker logs
+$ docker exec
+```
+
+@[1](Show All Images)
+@[2](Remove an Image)
+@[3](Remove a Container)
+@[4](View Container Logs)
+@[5](Execute Command in Running Container)
+
+---
+
+## Go Be Awesome!
+
+greg@gregmajor.com

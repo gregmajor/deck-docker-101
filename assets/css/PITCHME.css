@@ -22,7 +22,13 @@ html:-moz-full-screen-ancestor {
 
 .reveal pre {
   width: 100%;
-  box-shadow : none;
+  /* margin-left: 20px; */
+  /* margin-right: 20px; */
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+  background-color: #2b303b;
+  box-shadow: none;
+  font-size: 0.4em;
 }
 
 .reveal pre code {
@@ -49,31 +55,48 @@ html:-moz-full-screen-ancestor {
 }
 
 .reveal div.left {
-    float: left;
-    z-index: -10;
-    width: 45%;
+  float: left;
+  z-index: -10;
+  width: 45%;
 }
 
 .reveal div.right {
-    float: right;
-    z-index: -10;
-    width: 55%;
+  float: right;
+  z-index: -10;
+  width: 55%;
 }
 
 .reveal a.pro-link {
-    font-size: 0.5em;
+  font-size: 0.5em;
 }
 
 .reveal a {
-    color: #e7ad52;
+  color: #e7ad52;
 }
 
 .reveal a:hover {
-    color: #f3d7ac;
+  color: #f3d7ac;
+}
+
+.reveal h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.reveal h3 {
+  font-size: 1.0em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.reveal section img {
+  box-shadow: none;
+  border: none;
 }
 
 .hljs {
-  background : none;
+  background: none;
 }
 
 .white {
@@ -85,9 +108,14 @@ html:-moz-full-screen-ancestor {
   max-width: none;
 }
 
-.gp-tip { font-size : 1.5em; }
+.gp-tip {
+  font-size: 1.5em;
+}
 
-.gp-contact { font-size : 1.4em; }
+.gp-contact {
+  font-size: 1.4em;
+}
 
-.gp-download { margin-left: 10px; }
-
+.gp-download {
+  margin-left: 10px;
+}

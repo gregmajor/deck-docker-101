@@ -7,8 +7,9 @@
 theme : simple
 theme-override : assets/css/PITCHME.css
 # theme-override : assets/css/PITCHME.codemax.css
-highlight : atom-one-light
-logo : assets/image/logo.png
+highlight : tomorrow-night-bright
+layout : top
+logo : assets/images/logo.png
 transition : none
 published : true
-footnote : "GitPitch [ White ] Presentation Template"
+footnote : "Docker 101"
